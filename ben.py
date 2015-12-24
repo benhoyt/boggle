@@ -24,7 +24,7 @@ DIRS = [
     (-1,  1), # down-left
     (-1,  0), # left
     (-1, -1), # left-up
-    (-1,  0), # up
+    ( 0, -1), # up
     ( 1, -1), # up-right
 ]
 
