@@ -11,6 +11,7 @@ import bisect
 import random
 import string
 import sys
+import time
 
 # load wordlist as sorted list
 with open('word-list.txt') as f:
@@ -30,6 +31,9 @@ DIRS = [
 
 # populated below from command line arguments
 GRID = []
+
+
+clock = time.clock if sys.platform == 'win32' else time.time
 
 
 def find_words(x0, y0, prefix, used):
@@ -92,11 +96,9 @@ if __name__ == '__main__':
     print '-----'
 
     # solve and print the words found and number of solutions
+    start_time = clock()
     words = solve()
+    elapsed_time = clock() - start_time
     print ' '.join(sorted(words))
     print '-----'
-    print len(words)
-
-# 5 -> 48  (2 * n**2)
-# 10 -> 288
-# 20 -> 1237
+    print 'found', len(words), 'in', elapsed_time, 'seconds'
